@@ -3,8 +3,16 @@
 from __future__ import annotations
 
 import os
+from pathlib import Path
+import sys
 import traceback
 from typing import Any
+
+
+# Keep the local application package importable when Render starts from the repository root.
+PROJECT_DIR = Path(__file__).resolve().parent
+if str(PROJECT_DIR) not in sys.path:
+    sys.path.insert(0, str(PROJECT_DIR))
 
 from flask import Flask, jsonify, render_template, request, session
 
