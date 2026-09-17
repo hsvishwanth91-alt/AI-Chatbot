@@ -2,8 +2,9 @@ services:
   - type: web
     name: ai-chatbot
     runtime: python
-    buildCommand: pip install -r AI-Chatbot/requirements.txt
-    startCommand: gunicorn --chdir AI-Chatbot web:app
+    rootDir: AI-Chatbot
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn web:app
     healthCheckPath: /api/health
     envVars:
       - key: OPENAI_API_KEY
