@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Chatbot</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="chat-panel" aria-label="AI chatbot">
+        <header class="chat-header">
+          <div>
+            <p class="eyebrow">Portfolio AI Assistant</p>
+            <h1>AI Chatbot</h1>
+          </div>
+          <button class="ghost-button" id="clearButton" type="button">
+            Clear chat
+          </button>
+        </header>
+
+        <div class="status-bar">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span>Ready to help</span>
+        </div>
+
+        <div class="messages" id="messages" aria-live="polite">
+          <article class="message-row assistant">
+            <div class="avatar" aria-hidden="true">AI</div>
+            <div class="message-bubble">
+              Hi, I am your AI assistant. Ask me anything and I will reply here.
+            </div>
+          </article>
+        </div>
+
+        <div class="typing-indicator hidden" id="typingIndicator">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <form class="composer" id="chatForm">
+          <label class="sr-only" for="messageInput">Message</label>
+          <textarea
+            id="messageInput"
+            name="message"
+            rows="1"
+            placeholder="Type your message..."
+            autocomplete="off"
+            required
+          ></textarea>
+          <button class="send-button" id="sendButton" type="submit">
+            Send
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+  </body>
+</html>
