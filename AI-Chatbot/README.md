@@ -216,14 +216,15 @@ The original command-line chatbot still works:
 python main.py
 ```
 
-## Vercel Deployment
+## Render Deployment
 
-This project is prepared for Vercel with the root-level `index.py` Flask entry
-point and root-level `requirements.txt`.
+This project includes a root-level `render.yaml` that deploys the nested Flask
+app from the `AI-Chatbot` folder.
 
 1. Push this project to GitHub.
-2. Import the repository in Vercel.
-3. Add these Environment Variables in Vercel Project Settings:
+2. Create a Render Blueprint from the repository, or create a Python web
+   service with `AI-Chatbot` as the root directory.
+3. Add these Environment Variables in Render:
 
    ```env
    OPENAI_API_KEY=your_real_key
@@ -236,15 +237,15 @@ point and root-level `requirements.txt`.
 4. Deploy.
 
 Do not commit `.env` to GitHub. Keep real secrets only in `.env` locally and
-in Vercel Environment Variables for deployment.
+in Render Environment Variables for deployment.
 
 If the deployed chatbot says it cannot connect to OpenAI, open this URL in
 your deployed app:
 
 ```text
-https://your-vercel-domain.vercel.app/api/config-check
+https://your-render-service.onrender.com/api/config-check
 ```
 
-It should show `"configured": true`. If it does, check the Vercel Function
-logs for the exact backend error. The app logs the root cause without printing
-your API key.
+It should show `"configured": true`. If it does, check the Render service logs
+for the exact backend error. The app logs the root cause without printing your
+API key.

@@ -71,7 +71,7 @@ def chat() -> tuple[Any, int] | Any:
         app.logger.error("Configuration error: %s", exc)
         return _json_error(
             "The chatbot is not configured yet. Add OPENAI_API_KEY to .env "
-            "locally or to your Vercel Environment Variables.",
+            "locally or to your Render Environment Variables.",
             500,
         )
 

@@ -116,8 +116,8 @@ class Chatbot:
         except APIConnectionError as exc:
             raise ChatbotError(
                 "Could not connect to the OpenAI API from the server. Please "
-                "try again in a moment. If this keeps happening on Vercel, "
-                "check the Function logs and Environment Variables."
+                "try again in a moment. If this keeps happening on Render, "
+                "check the service logs and Environment Variables."
             ) from exc
         except APIStatusError as exc:
             raise ChatbotError(
